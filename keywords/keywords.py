@@ -17,8 +17,8 @@ def keywords_and_ngrams(input, nKeywords=100, thresholdLL=19, nBigrams=25, thres
     fdistText = defaultdict(int)
     sumText = 0
     listWords = []
-    
     listSentences = []
+    
     if isinstance(input,str):
         listSentences = [input]
     else:
@@ -73,6 +73,6 @@ if __name__=="__main__":
     if len(sys.argv) < 2:
         sys.stderr.write("Usage: python %s <text.txt>\n" % (sys.argv[0],))
     else:
-        d = keywords_and_ngrams(open(os.path.join(os.path.dirname(__file__), sys.argv[1]),"r").readlines(), 100, 19, 25, 2)
+        d = keywords_and_ngrams(open(sys.argv[1]),"r").readlines(), 100, 19, 25, 2)
         print json.dumps(d)
 
